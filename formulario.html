@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Consumir Json mediante FETCH en FORMULARIO </title>
+</head>
+<body>
+
+    <h1>Datos del Móvil</h1>
+    <form id="formulario-movil">
+        <p>
+            <label for="marca">Marca: 
+                <input type="text" name="marca" id="marca">
+            </label>
+        </p>
+        <p>
+            <label for="modelo">Modelo: 
+                <input type="text" name="modelo" id="modelo">
+            </label>
+        </p>
+        <p>
+            <label for="precio">Precio: 
+                <input type="number" name="precio" id="precio">
+            </label>
+        </p>
+        <p>
+            <label for="almacenamiento">Almacenamiento: 
+                <input type="text" name="almacenamiento" id="almacenamiento">
+            </label>
+        </p>
+    </form>
+
+    <script>
+        fetch('moviles.json')
+       .then(response => response.json())
+       .then(movil => {
+            document.getElementById("marca").value = movil.marca;
+            document.getElementById("modelo").value = movil.modelo;
+            document.getElementById("precio").value = movil.precio;
+            document.getElementById("almacenamiento").value = movil.almacenamiento;
+});
+
+    </script>
+
+</body>
+</html>
